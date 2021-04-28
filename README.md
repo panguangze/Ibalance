@@ -21,6 +21,16 @@ The **src** code.
 The main code about ILP is in Balance.cpp where we formulate our problem for Cbc solver. And other classes is for constructing graph mostly
 
 ## Run
+install:
+
+Using cmake to make the project.
+mkdir build
+
+cd build
+
+cmake ..
+
+
 step 1: Ibalance check output/my.checked.lh output/myseek, formulate problem.
 
 step2: cbc output/myseek.lp solve solu output/myseek.sol, solve by Cbc
