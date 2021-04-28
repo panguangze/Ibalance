@@ -2,7 +2,7 @@
 ## Introduction
 This project is for CS6491. The main introduction has been stated in the submission document. Here are some additional notes.
 
-The main idea that using ILP to balance the SV graph is proposed by my supervisor Dr. Li. 
+This demo actually comes from a project I am working on.The main idea that using ILP to balance the SV graph is proposed by my supervisor Dr. Li. 
 
 The **output** content includes some test files. 
 
