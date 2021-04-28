@@ -11,9 +11,6 @@ Junction::Junction(Segment * aSource, Segment * aTarget, char aSourceDir, char a
     mCredibility = aCredibility;
     
     mIsInferred = aInferred;
-    mHasLowerBoundLimit = aIsBounded;
-    // aSource->setHasLowerBoundLimit();
-    // aTarget->setHasLowerBoundLimit();
 
     mWeight = new Weight(aCoverage);
     mWeight->setCopyNum(aCopy);
@@ -53,27 +50,11 @@ vector<string> Junction::getInfo() {
     return info;
 }
 
-double Junction::getCredibility() { return mCredibility; }
-double Junction::setCredibility(double aCredibility) { mCredibility = aCredibility; }
 
 bool Junction::isInferred() { return mIsInferred; }
-bool Junction::hasLowerBoundLimit() { return mHasLowerBoundLimit; }
-bool Junction::hasCopy() { return mEdgeA->hasCopy(); }
-void Junction::setInferred() { mIsInferred = true; }
-void Junction::resetInferred() { mIsInferred = false; }
-void Junction::setHasLowerBoundLimit() { mHasLowerBoundLimit = true; }
-void Junction::resetHasLowerBoundLimit() { mHasLowerBoundLimit = false; }
-void Junction::checkLowerBound() { mHasLowerBoundLimit = mWeight->getCopyNum() >= 0 && !mIsInferred; }
-void Junction::restoreCopy() { mWeight->restore(); }
-void Junction::backupCopy() { mWeight->backup(); }
 
 Weight * Junction::getWeight() { return mWeight; }
-Segment * Junction::getSource() { return mSource; }
-Segment * Junction::getTarget() { return mTarget; }
-Edge * Junction::getEdgeA() { return mEdgeA; }
-Edge * Junction::getEdgeB() { return mEdgeB; }
 
-// functionality
 void Junction::insertEdgesToVertices() {
     if (mSourceDir == '+' && mTargetDir == '+') {
         mSource->getPositiveVertex()->insertEdgeAsSource(mEdgeA);
@@ -96,8 +77,4 @@ void Junction::insertEdgesToVertices() {
         mSource->getPositiveVertex()->insertEdgeAsTarget(mEdgeB);
         mTarget->getNegativeVertex()->insertEdgeAsSource(mEdgeB);
     }
-}
-
-void Junction::print() {
-    // TODO
 }

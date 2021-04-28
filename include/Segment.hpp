@@ -20,8 +20,7 @@ class Segment {
 
         bool mHasLowerBoundLimit;  // used in ILP processing, if true then lower bound is 1, otherwise 0
         bool mIsOrphan;            // record whether segment is orphan originally
-        bool mHasCheckedOrphan;
-        
+
         Weight * mWeight;
         Vertex * mPositiveVertex;
         Vertex * mNegativeVertex;
@@ -31,33 +30,13 @@ class Segment {
         Segment(int aId, string aChrom, int aStart, int aEnd, double aCoverage, double aCredibility, double aCopy);
         ~Segment();
         
-        // getter and setter
         int getId();
-        string getChrom();
-        int getStart();
-        int getEnd();
-
-        double getCredibility();
-        void setCredibility(double aCredibility);
-        
-        bool isOrphan(bool aIsOriginal = true);
-        bool isDeadEnd();
-        bool hasCopy();
         bool hasLowerBoundLimit();
         void checkOrphan();
-        void checkLowerBound();
-        void setHasLowerBoundLimit();
-        void resetHasLowerBoundLimit();
-        void restoreCopy();
-        void backupCopy();
 
         Weight * getWeight();
         Vertex * getPositiveVertex();
         Vertex * getNegativeVertex();
-        void setPositiveVertex(Vertex * aVertex);
-        void setNegativeVertex(Vertex * aVertex);
-        
-        // print func
-        void print();
+
 };
 #endif
